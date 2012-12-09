@@ -1,0 +1,36 @@
+f :: Int -> String
+f 1 = "one"
+f 2 = "two"
+f 3 = "three"
+f 4 = "four"
+f 5 = "five"
+f 6 = "six"
+f 7 = "seven"
+f 8 = "eight"
+f 9 = "nine"
+f 10 = "ten"
+f 11 = "eleven"
+f 12 = "twelve"
+f 13 = "thirteen"
+f 14 = "fourteen"
+f 15 = "fifteen"
+f 16 = "sixteen"
+f 17 = "seventeen"
+f 18 = "eighteen"
+f 19 = "nineteen"
+f 20 = "twenty"
+f 30 = "thirty"
+f 40 = "forty"
+f 50 = "fifty"
+f 60 = "sixty"
+f 70 = "seventy"
+f 80 = "eighty"
+f 90 = "ninety"
+f 100 = "onehundred"
+f 1000 = "onethousand"
+f n | n < 100   = f ((n `div` 10) * 10) ++ f (n `mod` 10)
+    | n `mod` 100 == 0    = f (n `div` 100) ++ "hundred"
+    | otherwise = f (n `div` 100) ++ "hundredand" ++ f (n `mod` 100)
+
+main = do
+  print . sum . map (length . f) $ [1..1000]
