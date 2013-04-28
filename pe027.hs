@@ -13,6 +13,5 @@ result :: [(Int -> Int, Int)]
 result = let r = [ formula a b | a <- [(-999)..999], b <- [(-999)..999] ]
          in  filter (\a -> snd a > 50) . zip r $ (map score r)
 
-main = do
-  print . map (\x -> (fst x 0, fst x 1)) $ result
+main = print . map (\x -> (fst x 0, fst x 1)) $ result
   
